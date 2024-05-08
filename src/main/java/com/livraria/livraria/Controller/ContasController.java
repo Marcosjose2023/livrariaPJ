@@ -12,37 +12,29 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/contas")
 public class ContasController {
 
     private ContasServices contasServices;
 
-    public ContasController(ContasServices contasServices) {
-        this.contasServices = contasServices;
-    }
     @PostMapping("/cadastrarConta")
-    public void cadastrarContas(@Valid @RequestBody Contas contas) {
-        contasServices.cadastrarConta(contas);
-    }
-    @GetMapping("/pegarContas")
-    public List<Contas> getALLContas() {
-        return contasServices.listarContas();
+    public void cadastrarContas (@Valid @RequestBody Contas contas) {
+        contasServices.cadastrarContas(contas);
     }
     @DeleteMapping("/{id}")
-    public void deletarContas(@PathVariable Long id) {
+    public void deletarContas (@PathVariable Long id) {
         contasServices.deletarContas(id);
     }
-
     @PutMapping("/editarContas")
-    public Contas editar(@RequestBody Contas contas) {
-        return contasServices.editar(contas);
+    public Contas editarContas (@RequestBody Contas contas) {
+        return contasServices.editarContas(contas);
     }
-
     @GetMapping("/listarContas")
     public List<Contas> listarContas() {
         return contasServices.listarContas();
     }
     @GetMapping("/buscarPorId")
-    public Optional<Contas> buscarPorId(Long id) {
+    public Optional<Contas> buscarPorid(Long id) {
         return contasServices.buscarContas(id);
     }
 }

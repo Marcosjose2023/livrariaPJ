@@ -28,26 +28,26 @@ public class PedidosController {
 
     @PostMapping
     public ResponseEntity<Pedidos> cadastrarPedido(@RequestBody Pedidos pedido) {
-        Pedidos novoPedido = pedidosServices.cadastrarPedido(pedido);
+        Pedidos novoPedido = pedidosServices.cadastrarPedidos(pedido);
         return new ResponseEntity<>(novoPedido, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> atualizarPedido(@PathVariable Long id, @RequestBody Pedidos pedidos) {
         pedidos.setId(id);
-        pedidosServices.atualizarPedido(pedidos);
+        pedidosServices.atualizarPedidos(pedidos);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/inativar/{id}")
-    public ResponseEntity<Void> inativarPedido(@PathVariable Long id) {
-        pedidosServices.inativarPedido(id);
+    public ResponseEntity<Void> inativarPedidos(@PathVariable Long id) {
+        pedidosServices.inativarPedidos(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/ativar/{id}")
-    public ResponseEntity<Void> ativarPedido(@PathVariable Long id) {
-        pedidosServices.ativarPedido(id);
+    public ResponseEntity<Void> ativarPedidos(@PathVariable Long id) {
+        pedidosServices.ativarPedidos(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

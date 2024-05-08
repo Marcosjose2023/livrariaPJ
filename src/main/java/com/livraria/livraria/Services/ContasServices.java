@@ -16,7 +16,7 @@ public class ContasServices {
     public ContasServices(ContasRepository contasRepository) {
         this.contasRepository = contasRepository;
     }
-    public void cadastrarConta(Contas contas){
+    public void cadastrarContas (Contas contas){
         contasRepository.save(contas);
     }
     public Optional<Contas> buscarContas (long id){
@@ -25,15 +25,15 @@ public class ContasServices {
     public void deletarContas(Long id){
         contasRepository.deleteAllById(id);
     }
-    public Contas editar(Contas contas){
+    public Contas editarContas (Contas contas){
         return contasRepository.save(contas);
     }
     public List<Contas> listarContas() {
         List<Contas> CO = contasRepository.findAll();
         return CO;
     }
-    public Contas atualizarContas(Contas contas) {
+   /* public Contas atualizarContas(Contas contas) {
         return contasRepository.save(contas);
-    }
+    }*/
 
 }

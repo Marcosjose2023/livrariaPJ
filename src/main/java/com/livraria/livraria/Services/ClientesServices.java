@@ -19,16 +19,16 @@ public class ClientesServices {
     public void cadastrarCliente(Clientes clientes) {
         clientesRepository.save(clientes);
     }
-    public Optional <Clientes> buscarCliente (long id){
+    public Optional <Clientes> buscarPeloIdClientes (long id){
         return clientesRepository.findById(id);
     }
-    public void deletarCliente(Long id){
+    public void deletarCliente (Long id){
         clientesRepository.deleteAllById(id);
     }
-    public Clientes editar(Clientes clientes){
+    public Clientes editarClientes (Clientes clientes){
         return clientesRepository.save(clientes);
     }
-    public List<Clientes> listarCliente(){
+    public List<Clientes> listarClientes(){
         List<Clientes> Cls = clientesRepository.findAll();
         return Cls;
     }

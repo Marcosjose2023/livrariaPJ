@@ -31,8 +31,8 @@ public class FuncionariosServices {
         List<Funcionarios> FU = funcionariosRepository.findAll();
         return FU;
     }
-    public Funcionarios atualizarFuncionarios (Funcionarios funcionarios) {
+/*public Funcionarios atualizarFuncionarios (Funcionarios funcionarios) {
         return funcionariosRepository.save(funcionarios);
-    }
+    }*/
 
 }

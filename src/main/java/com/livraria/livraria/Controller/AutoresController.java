@@ -12,33 +12,33 @@ import java.util.Optional;
 @RestController
 public class AutoresController {
     @Autowired
-    AutoresServices services;
+    private AutoresServices autoresServices;
 
     @GetMapping("/listarAutores")
     public List<Autores> listarAutores(){
-        return services.listarTodosAutores();
+        return autoresServices.listarTodosAutores();
     }
 
     @GetMapping("/buscarPorId")
     public Optional<Autores> buscarPorId(Long id){
-        return services.buscarPorId(id);
+        return autoresServices.buscarPorId(id);
     }
     @GetMapping("/buscarPorNome")
     public Optional<Autores> buscarPorNome(String nome){
-        return services.buscarPorNome(nome);
+        return autoresServices.buscarPorNome(nome);
     }
     @PostMapping("/adicionarAutor")
-    public void adicionarAutor(@RequestBody @Valid Autores autores){
-        services.adicionarAutor(autores);
+    public void adicionarAutores(@RequestBody @Valid Autores autores){
+        autoresServices.adicionarAutor(autores);
     }
 
     @PutMapping("/editarAutor")
-    public Autores editar(Autores autores){
-       return services.editar(autores);
+    public Autores editarAutores (Autores autores){
+       return autoresServices.editar(autores);
     }
 
     @DeleteMapping("/deletarAutor")
     public void deletar(Long id){
-        services.deletarAutor(id);
+        autoresServices.deletarAutor(id);
     }
 }

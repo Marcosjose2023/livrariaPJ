@@ -1,6 +1,7 @@
 package com.livraria.livraria.Services;
 
 import com.livraria.livraria.Entity.Categorias;
+import com.livraria.livraria.Entity.Clientes;
 import com.livraria.livraria.Entity.Livros;
 import com.livraria.livraria.Repository.CategoriasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,14 @@ public class CategoriasServices {
     @Autowired
     CategoriasRepository categoriasRepository;
 
-    public List<Categorias> listarCategoias(){
-        return categoriasRepository.findAll();
+    public CategoriasServices(Categorias categorias) {
+        this.categorias = categorias;
     }
 
+    public List<Categorias> listarCategorias() {
+        List<Categorias> Cat = categoriasRepository.findAll();
+        return Cat;
+    }
     public void criarCategorias(Categorias categorias){
         categoriasRepository.save(categorias);
     }

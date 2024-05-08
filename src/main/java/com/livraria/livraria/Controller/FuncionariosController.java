@@ -11,13 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/funcionarios")
 public class FuncionariosController {
 
     private FuncionariosServices funcionariosServices;
 
-    public FuncionariosController(FuncionariosServices funcionariosServices) {
-        this.funcionariosServices = funcionariosServices;
-    }
     @PostMapping("/cadastrarFuncionarios")
     public void cadastrarFuncionarios(@Valid @RequestBody Funcionarios funcionarios) {
         funcionariosServices.cadastrarFuncionarios(funcionarios);
@@ -31,7 +29,7 @@ public class FuncionariosController {
         funcionariosServices.deletarFuncionarios(id);
     }
     @PutMapping("/editarEnderecos")
-    public Funcionarios editar (@RequestBody Funcionarios funcionarios) {
+    public Funcionarios editarFuncionario (@RequestBody Funcionarios funcionarios) {
         return funcionariosServices.editar(funcionarios);
     }
     @GetMapping("/buscarFuncionarios")

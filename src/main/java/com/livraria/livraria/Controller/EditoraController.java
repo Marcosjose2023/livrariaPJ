@@ -13,24 +13,17 @@ public class EditoraController {
 
     private EditoresServices editoresServices;
 
-    public EditoraController(EditoresServices editoresServices) {
-        this.editoresServices = editoresServices;
-    }
 
     @PostMapping("/cadastrarEditora")
     public void cadastrarEditora(@Valid @RequestBody Editoras editoras) {
         editoresServices.cadastrarEditoras(editoras);
-    }
-    @GetMapping("/pegarEditora")
-    public List<Editoras> getALLContas() {
-        return editoresServices.listarTodosEditoras();
     }
     @DeleteMapping("/{id}")
     public void deletarEditoras(@PathVariable Long id) {
         editoresServices.deletarEditora(id);
     }
     @PutMapping("/editarContas")
-    public Editoras editar (@RequestBody Editoras editoras) {
+    public Editoras editarEditora (@RequestBody Editoras editoras) {
         return editoresServices.editar(editoras);
     }
 

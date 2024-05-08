@@ -23,22 +23,22 @@ public class   LivrosController {
     }
 
     @PostMapping("/adicionarLivro")
-    public void adicionarLivro(@RequestBody @Valid Livros livros){
+    public void adicionarLivro (@RequestBody @Valid Livros livros){
         livrosServices.cadastrarLivros(livros);
     }
 
     @GetMapping("/buscar/{id}")
-    public Optional<Livros> buscarLivro(@PathVariable @Valid Long id){
+    public Optional<Livros> buscarLivro (@PathVariable @Valid Long id){
        return livrosServices.buscarPorId(id);
     }
 
     @GetMapping("/buscar/{titulo}")
-    public Optional<Livros> buscarLivro(@PathVariable @Valid String titulo){
+    public Optional<Livros> buscarLivro (@PathVariable @Valid String titulo){
         return livrosServices.buscarPorTitulo(titulo);
     }
 
     @PutMapping("/editarLivro")
-    public Livros editar(@RequestBody Livros livros) {
+    public Livros editar (@RequestBody Livros livros) {
         return livrosServices.editar(livros);
     }
 
@@ -49,5 +49,8 @@ public class   LivrosController {
     public Optional<Livros> buscarCategoria(@PathVariable Categorias categorias){
         return livrosServices.buscarPorCategoria(categorias);
     }
+   /* @GetMapping("/livrosDestacadosPorAno")
+    public List<Livros> getLivrosDestacadosPorAno(@RequestParam int ano) {
+        return livrosServices.destacarLivrosPorAno(ano);*/
 
 }

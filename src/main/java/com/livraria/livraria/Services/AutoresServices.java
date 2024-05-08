@@ -14,9 +14,10 @@ public class AutoresServices {
     @Autowired
      private AutoresRepository autoresRepository;
 
-    Autores autores;
-
-    public void adicionarAutor(Autores autores){
+    public AutoresServices(AutoresRepository autoresRepository) {
+        this.autoresRepository = autoresRepository;
+    }
+    public void adicionarAutor (Autores autores){
     autoresRepository.save(autores);
     }
     public List<Autores> listarTodosAutores(){
@@ -26,7 +27,7 @@ public class AutoresServices {
     public Optional<Autores> buscarPorId(long id){
         return autoresRepository.findById(id);
     }
-    public Autores editar(Autores autores){
+    public Autores editar (Autores autores){
         return autoresRepository.save(autores);
     }
 
@@ -37,11 +38,11 @@ public class AutoresServices {
     public void deletarAutor(Long id){
         autoresRepository.deleteById(id);
     }
-    public void inativarAutor (Autores autores){
+    /*public void inativarAutores (Autores autores){
         autores.setAtivo(false);
     }
-    public void ativarAutor (Autores autores){
+    public void ativarAutorores (Autores autores){
         autores.setAtivo(true);
-    }
+    }*/
 
 }

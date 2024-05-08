@@ -30,22 +30,26 @@ public class Livros {
     @NotNull
     private Double preco;
     @NotNull
-    private boolean destaque;
+    private boolean destaques;
     @NotBlank
     private String sumario;
+
+    @OneToMany(mappedBy = "livros")
+    private List<Categorias> categoria;
 
     public Livros() {
     }
 
-    public Livros(Autores autores, Categorias categorias, boolean destaque,Editoras editoras, Long id, Double preco, String sumario, String titulo) {
-        this.autores = autores;
-        this.categorias = categorias;
-        this.destaque = destaque;
-        this.editoras = editoras;
+    public Livros(Long id, String titulo, Autores autores, Editoras editoras, Categorias categorias, Double preco, boolean destaques, String sumario,List<Categorias> livros) {
         this.id = id;
-        this.preco = preco;
-        this.sumario = sumario;
         this.titulo = titulo;
+        this.autores = autores;
+        this.editoras = editoras;
+        this.categorias = categorias;
+        this.preco = preco;
+        this.destaques = destaques;
+        this.sumario = sumario;
+
     }
 
     public Autores getAutores() {
@@ -96,12 +100,12 @@ public class Livros {
         this.preco = preco;
     }
 
-    public boolean isDestaque() {
-        return destaque;
+    public boolean isDestaques() {
+        return destaques;
     }
 
-    public void setDestaque(boolean destaque) {
-        this.destaque = destaque;
+    public void setDestaques(boolean destaque) {
+        this.destaques = destaque;
     }
 
     public String getSumario() {
@@ -110,5 +114,13 @@ public class Livros {
 
     public void setSumario(String sumario) {
         this.sumario = sumario;
+    }
+
+    public List<Categorias> getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(List<Categorias> categoria) {
+        this.categoria = categoria;
     }
 }

@@ -20,16 +20,16 @@ public class PedidosServices {
         return pedidosRepository.findById(id);
     }
 
-    public Pedidos cadastrarPedido(Pedidos pedidos) {
+    public Pedidos cadastrarPedidos(Pedidos pedidos) {
         pedidos.setAtivo(true);
         return pedidosRepository.save(pedidos);
     }
 
-    public Pedidos atualizarPedido(Pedidos pedido) {
+    public Pedidos atualizarPedidos(Pedidos pedido) {
         return pedidosRepository.save(pedido);
     }
 
-    public void inativarPedido(Long id) {
+    public void inativarPedidos(Long id) {
         Optional<Pedidos> pedido = pedidosRepository.findById(id);
         pedido.ifPresent(p -> {
             p.setAtivo(false);
@@ -37,7 +37,7 @@ public class PedidosServices {
         });
     }
 
-    public void ativarPedido(Long id) {
+    public void ativarPedidos(Long id) {
         Optional<Pedidos> pedido = pedidosRepository.findById(id);
         pedido.ifPresent(p -> {
             p.setAtivo(true);

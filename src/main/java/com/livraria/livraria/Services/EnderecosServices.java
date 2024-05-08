@@ -34,7 +34,7 @@ public class EnderecosServices {
         return enderecosRepository.findById(id);
     }
 
-    public Enderecos editar(Enderecos enderecos){
+    public Enderecos editarEnderecos (Enderecos enderecos){
         return enderecosRepository.save(enderecos);
     }
 

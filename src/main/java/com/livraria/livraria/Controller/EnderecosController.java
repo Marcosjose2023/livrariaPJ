@@ -15,25 +15,17 @@ public class EnderecosController {
 
     private EnderecosServices enderecosServices;
 
-    public EnderecosController(EnderecosServices enderecosServices) {
-        this.enderecosServices = enderecosServices;
-    }
-
     @PostMapping("/cadastrarEndereco")
     public void cadastrarEndereco(@Valid @RequestBody Enderecos enderecos) {
         enderecosServices.cadastrarEnderecos(enderecos);
-    }
-    @GetMapping("/pegarEnderecos")
-    public List<Enderecos> getALLEnderecos() {
-        return enderecosServices.listarTodosEnderecos();
     }
     @DeleteMapping("/{id}")
     public void deletarEnderecos(@PathVariable Long id) {
         enderecosServices.deletarEnderecos(id);
     }
     @PutMapping("/editarEnderecos")
-    public Enderecos editar(@RequestBody Enderecos enderecos) {
-        return enderecosServices.editar(enderecos);
+    public Enderecos editarEndereco (@RequestBody Enderecos enderecos) {
+        return enderecosServices.editarEnderecos(enderecos);
     }
     @GetMapping("/listarEnderecos")
     public List<Enderecos> listarEnderecos() {
